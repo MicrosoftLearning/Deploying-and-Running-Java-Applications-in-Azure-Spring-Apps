@@ -158,10 +158,10 @@ Azure Spring Apps service provides a config server for the use of Spring apps. A
 
 1. From the Git Bash prompt, make sure you are no longer in the **spring-petclinic-microservices** folder and clone the **spring-petclinic-microservices-config** repo
 
-   ```bash
-   cd ~/projects
-   git clone https://github.com/<your-github-username>/spring-petclinic-microservices-config.git
-   ```
+```bash
+cd ~/projects
+git clone https://github.com/<your-github-username>/spring-petclinic-microservices-config.git
+```
 
 1. From the Git Bash prompt, move to the newly created **spring-petclinic-microservices-config** folder and run the following commands to copy all the config server configuration yaml files from [spring-petclinic-microservices-config](https://github.com/spring-petclinic/spring-petclinic-microservices-config) to the local folder on your lab computer.
 
