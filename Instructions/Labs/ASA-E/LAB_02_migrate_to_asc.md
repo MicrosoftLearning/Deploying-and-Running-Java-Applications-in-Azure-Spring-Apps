@@ -437,7 +437,9 @@ You now have the compute and data services available for deployment of the compo
    API_GATEWAY_JAR=spring-petclinic-api-gateway/target/spring-petclinic-api-gateway-$VERSION.jar
    az spring app deploy --name ${API_GATEWAY} \
        --config-file-patterns ${API_GATEWAY} \
-       --artifact-path ${API_GATEWAY_JAR}
+       --artifact-path ${API_GATEWAY_JAR} \
+       --resource-group $RESOURCE_GROUP \
+       --service $SPRING_APPS_SERVICE
    ```
 
 1. In the same way create an app for the `admin-server` microservice, bind it and deploy it:
@@ -453,7 +455,9 @@ You now have the compute and data services available for deployment of the compo
    ADMIN_SERVER_JAR=spring-petclinic-admin-server/target/spring-petclinic-admin-server-$VERSION.jar
    az spring app deploy --name ${ADMIN_SERVER} \
        --config-file-patterns ${ADMIN_SERVER} \
-       --artifact-path ${ADMIN_SERVER_JAR}
+       --artifact-path ${ADMIN_SERVER_JAR} \
+       --resource-group $RESOURCE_GROUP \
+       --service $SPRING_APPS_SERVICE
    ```
 
    > **Note**: Wait for each operation to complete. This might take about 5 minutes.
@@ -470,7 +474,9 @@ You now have the compute and data services available for deployment of the compo
    CUSTOMERS_SERVICE_JAR=spring-petclinic-customers-service/target/spring-petclinic-customers-service-$VERSION.jar
    az spring app deploy --name ${CUSTOMERS_SERVICE} \
        --config-file-patterns ${CUSTOMERS_SERVICE} \
-       --artifact-path ${CUSTOMERS_SERVICE_JAR} 
+       --artifact-path ${CUSTOMERS_SERVICE_JAR} \
+       --resource-group $RESOURCE_GROUP \
+       --service $SPRING_APPS_SERVICE
    ```
 
    > **Note**: Wait for each operation to complete. This might take about 5 minutes.
@@ -495,7 +501,9 @@ You now have the compute and data services available for deployment of the compo
    VISITS_SERVICE_JAR=spring-petclinic-visits-service/target/spring-petclinic-visits-service-$VERSION.jar
    az spring app deploy --name ${VISITS_SERVICE} \
        --config-file-patterns ${VISITS_SERVICE} \
-       --artifact-path ${VISITS_SERVICE_JAR} 
+       --artifact-path ${VISITS_SERVICE_JAR} \
+       --resource-group $RESOURCE_GROUP \
+       --service $SPRING_APPS_SERVICE
    ```
 
    > **Note**: Wait for each operation to complete. This might take about 5 minutes.
@@ -512,7 +520,9 @@ You now have the compute and data services available for deployment of the compo
    VETS_SERVICE_JAR=spring-petclinic-vets-service/target/spring-petclinic-vets-service-$VERSION.jar
    az spring app deploy --name ${VETS_SERVICE} \
        --config-file-patterns ${VETS_SERVICE}  \
-       --artifact-path ${VETS_SERVICE_JAR}
+       --artifact-path ${VETS_SERVICE_JAR} \
+       --resource-group $RESOURCE_GROUP \
+       --service $SPRING_APPS_SERVICE
    ```
 
    > **Note**: Wait for each operation to complete. This might take about 5 minutes.
