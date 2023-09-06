@@ -412,6 +412,8 @@ You now have the compute and data services available for deployment of the compo
    ```bash
    az spring app create \
        --name $API_GATEWAY \
+       --resource-group $RESOURCE_GROUP \
+       --service $SPRING_APPS_SERVICE \
        --assign-endpoint true
    ```
 
@@ -443,6 +445,8 @@ You now have the compute and data services available for deployment of the compo
    ```bash
    az spring app create \
        --name $ADMIN_SERVER \
+       --resource-group $RESOURCE_GROUP \
+       --service $SPRING_APPS_SERVICE \
        --assign-endpoint true
    az spring application-configuration-service bind --app ${ADMIN_SERVER}
    az spring service-registry bind --app ${ADMIN_SERVER}
@@ -458,7 +462,9 @@ You now have the compute and data services available for deployment of the compo
 
    ```bash
    az spring app create \
-       --name $CUSTOMERS_SERVICE
+       --name $CUSTOMERS_SERVICE \
+       --resource-group $RESOURCE_GROUP \
+       --service $SPRING_APPS_SERVICE
    az spring application-configuration-service bind --app ${CUSTOMERS_SERVICE}
    az spring service-registry bind --app ${CUSTOMERS_SERVICE}
    CUSTOMERS_SERVICE_JAR=spring-petclinic-customers-service/target/spring-petclinic-customers-service-$VERSION.jar
@@ -481,7 +487,9 @@ You now have the compute and data services available for deployment of the compo
 
    ```bash
    az spring app create \
-       --name $VISITS_SERVICE
+       --name $VISITS_SERVICE \
+       --resource-group $RESOURCE_GROUP \
+       --service $SPRING_APPS_SERVICE 
    az spring application-configuration-service bind --app ${VISITS_SERVICE}
    az spring service-registry bind --app ${VISITS_SERVICE}
    VISITS_SERVICE_JAR=spring-petclinic-visits-service/target/spring-petclinic-visits-service-$VERSION.jar
@@ -496,7 +504,9 @@ You now have the compute and data services available for deployment of the compo
 
    ```bash
    az spring app create \
-       --name $VETS_SERVICE 
+       --name $VETS_SERVICE \
+       --resource-group $RESOURCE_GROUP \
+       --service $SPRING_APPS_SERVICE 
    az spring application-configuration-service bind --app ${VETS_SERVICE}
    az spring service-registry bind --app ${VETS_SERVICE}
    VETS_SERVICE_JAR=spring-petclinic-vets-service/target/spring-petclinic-vets-service-$VERSION.jar
