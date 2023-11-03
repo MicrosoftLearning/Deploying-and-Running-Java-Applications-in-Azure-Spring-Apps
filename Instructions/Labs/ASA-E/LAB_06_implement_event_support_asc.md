@@ -382,6 +382,7 @@ In this task, you will update the vets microservice to receive events from the t
 1. You can now create the storage container.
 
    ```bash
+   STORAGE_CONTAINER=eventhubs-binder
    az storage container create --name $STORAGE_CONTAINER --account-name $STORAGE_ACCOUNT_NAME --public-access container --auth-mode login
    ```
 
@@ -502,22 +503,15 @@ In this task, you will update the vets microservice to receive events from the t
 1. In the `spring-petclinic-microservices/spring-petclinic-vets-service/src/main/resources` folder, update the contents of the `application.yml` file with the below contents:
 
    ```yaml
-    spring:
-      application:
-        name: vets-service
-      config:
-        import: optional:configserver:${CONFIG_SERVER_URL:http://localhost:8888/}
-      cache:
-        cache-names: vets
-      cloud:
-        function: consume;
-        
-    ---
-    spring:
-      config:
-        activate:
-          on-profile: docker
-        import: configserver:http://config-server:8888  
+   spring:
+     application:
+       name: vets-service
+     config:
+       import: optional:configserver:${CONFIG_SERVER_URL:http://localhost:8888/}
+     cache:
+       cache-names: vets
+     cloud:
+       function: consume; 
    ```
 
    This adds the configuration for the cloud function of the consume method.
